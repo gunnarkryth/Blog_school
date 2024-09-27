@@ -1,7 +1,9 @@
+import { BlogPosts } from "../components/BlogPosts/BlogPosts";
+
 export const Home = () => {
   return (
     <>
-      <h2>Home</h2>
+      <BlogPosts />
     </>
   );
 };

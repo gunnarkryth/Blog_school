@@ -1,6 +1,13 @@
-export const AllBlogs = `query MyQuery {
+export const AllBlogs = `
+query MyQuery {
   blogPosts {
-    title
     body
+    createdAt
+    updatedAt
+    thumbnail {
+      url
+    }
+    title
   }
-}`;
+}
+  `;

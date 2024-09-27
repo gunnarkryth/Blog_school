@@ -1,11 +1,14 @@
 import "./assets/styles/App.scss";
-import { Gallery } from "./components/Gallery/Gallery";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
 function App() {
-  
   return (
     <>
-    <Gallery></Gallery>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/home" element={<Home />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
