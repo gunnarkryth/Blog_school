@@ -22,8 +22,8 @@ export const BlogPosts = () => {
       {data?.blogPosts?.map((blog) => (
         <>
           <figure key={blog?.id}>
-            <p>{blog?.createdAt}</p>
-            <p>{blog?.updatedAt}</p>
+            <span>{blog?.createdAt}</span>
+            {blog?.updatedAt && <span>*</span>}
             <h2>{blog?.title}</h2>
             <img src={blog?.thumbnail?.url} alt="" />
             <figcaption>
