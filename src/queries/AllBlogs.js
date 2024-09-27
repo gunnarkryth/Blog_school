@@ -8,6 +8,7 @@ query MyQuery {
       url
     }
     title
+    class
   }
 }
   `;

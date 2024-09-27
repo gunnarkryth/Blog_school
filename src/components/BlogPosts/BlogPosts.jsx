@@ -25,19 +25,22 @@ export const BlogPosts = () => {
     return <h2>Error: {error.message}</h2>;
   }
 
+console.log(s);
+
+
   return (
     <section className={s.BlogPosts}>
       {data?.blogPosts?.map((blog) => (
         <>
-          <figure key={blog?.id}>
+          <figure key={blog?.id} className={s[blog?.class]}>
             <span>{formatDate(blog?.createdAt)}</span>
             {blog?.updatedAt && <span>*</span>}
             <h2>{blog?.title}</h2>
             <img src={blog?.thumbnail?.url} alt="" />
             <figcaption>
-              <MarkDown>{blog?.body}</MarkDown>
+              <MarkDown>{blog?.body.substring(0, 256)}</MarkDown>
             </figcaption>
-            <NavLink to={`/singlePage/${blog.slug}`}>Read more...</NavLink>
+            <NavLink to={`/blog/${blog.slug}`}>Read more...</NavLink>
           </figure>
         </>
       ))}
