@@ -1,6 +1,6 @@
 export const AllBlogs = `
 query MyQuery {
-  blogPosts {
+  blogPosts(first: 10) {
     body
     createdAt
     updatedAt
@@ -9,6 +9,10 @@ query MyQuery {
     }
     title
     class
+    createdBy {
+      name
+      picture
+    }
   }
 }
   `;
