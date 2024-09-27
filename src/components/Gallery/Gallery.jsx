@@ -11,8 +11,15 @@ export const Gallery = () => {
     queryKey: ["AllBlogs"],
     queryFn: async () => request(import.meta.env.VITE_PUBLIC_API, AllBlogs),
   });
-  console.log(data);
-  return <>
-  <p>Hej</p>
-  </>;
+   console.log(data);
+  return (
+    <section>
+      {data?.blogPosts?.map((blog) => (
+        <div key={blog.id}>
+          <h2>{blog.title}</h2>
+          <MarkDown>{blog.body}</MarkDown>
+        </div>
+      ))}
+    </section>
+  );
 };
