@@ -8,7 +8,12 @@ import { NavLink } from "react-router-dom";
 export const BlogPosts = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["AllBlogs"],
-    queryFn: async () => request(import.meta.env.VITE_PUBLIC_API, AllBlogs),
+    // queryFn: async () => request(import.meta.env.VITE_PUBLIC_API, AllBlogs),
+    queryFn: async () =>
+      request(
+        "https://eu-west-2.cdn.hygraph.com/content/cm1kc5rrt023608w57dvmctkw/master",
+        AllBlogs
+      ),
   });
   // console.log(data);
 
