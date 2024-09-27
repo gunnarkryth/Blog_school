@@ -10,19 +10,27 @@ export const BlogPosts = () => {
     queryKey: ["AllBlogs"],
     queryFn: async () => request(import.meta.env.VITE_PUBLIC_API, AllBlogs),
   });
-  console.log(data);
+  // console.log(data);
+
+  function formatDate(date) {
+    let formatedDate = new Date(date);
+    return formatedDate.toLocaleDateString("dk-DK");
+  }
+
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
+
   if (error) {
     return <h2>Error: {error.message}</h2>;
   }
+
   return (
     <section className={s.BlogPosts}>
       {data?.blogPosts?.map((blog) => (
         <>
           <figure key={blog?.id}>
-            <span>{blog?.createdAt}</span>
+            <span>{formatDate(blog?.createdAt)}</span>
             {blog?.updatedAt && <span>*</span>}
             <h2>{blog?.title}</h2>
             <img src={blog?.thumbnail?.url} alt="" />
