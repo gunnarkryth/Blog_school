@@ -4,13 +4,15 @@ import MarkDown from "markdown-to-jsx";
 // import s from "./Style.module.scss";
 import { useQuery } from "@tanstack/react-query";
 import request from "graphql-request";
-import { allBlogs } from "../../queries/AllBlogs";
+import { AllBlogs } from "../../queries/AllBlogs";
 
 export const Gallery = () => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["allBlogs"],
-    queryFn: async () => request(import.meta.env.VITE_PUBLIC_API, allBlogs),
+    queryKey: ["AllBlogs"],
+    queryFn: async () => request(import.meta.env.VITE_PUBLIC_API, AllBlogs),
   });
   console.log(data);
-  return <></>;
+  return <>
+  <p>Hej</p>
+  </>;
 };

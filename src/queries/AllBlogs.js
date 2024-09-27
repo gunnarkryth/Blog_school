@@ -1,4 +1,4 @@
-export const allBlogs = `query MyQuery {
+export const AllBlogs = `query MyQuery {
   blogPosts {
     title
     body
