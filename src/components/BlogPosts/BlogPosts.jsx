@@ -32,10 +32,6 @@ export const BlogPosts = () => {
       {data?.blogPosts?.map((blog) => (
         <>
           <figure key={blog?.id} className={s[blog?.class]}>
-            <span className={s.createdBy}>
-              <img src={blog?.createdBy.picture} alt="" />{" "}
-              {blog?.createdBy.name}
-            </span>
             <div className={s.time}>
               <span className={s.createdAt}>{formatDate(blog?.createdAt)}</span>
               {blog?.updatedAt && <span className={s.updatedAt}>*</span>}
@@ -43,9 +39,13 @@ export const BlogPosts = () => {
             <h2>{blog?.title}</h2>
             <img src={blog?.thumbnail?.url} alt="" />
             <figcaption>
+              <div className={s.createdBy}>
+                <img src={blog?.createdBy.picture} alt="" />{" "}
+                {blog?.createdBy.name}
+              </div>
               <MarkDown>{blog?.body.substring(0, 256)}</MarkDown>
             </figcaption>
-            <NavLink to={`/blog/${blog.slug}`}>Read more...</NavLink>
+            {/* <NavLink to={`/blog/${blog.slug}`}>Read more...</NavLink> */}
           </figure>
         </>
       ))}
